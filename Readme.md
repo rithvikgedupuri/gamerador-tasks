@@ -633,8 +633,6 @@ Once your repository has your code, you need to point your custom domain to your
 2. **Navigate to Pages:** On the left sidebar menu, click on **Pages** under the "Code and automation" block.
 3. **Configure the custom domain:** Scroll down to the **Custom domain** section, type your domain address `gameradar.rameshgedupuri.space` into the text box, and click **Save**.
 4. **Enforce security:** Wait a few moments for GitHub to verify the site, then check the box next to **Enforce HTTPS** to keep your website secure.
-```
-```
 
 # 🚀 Mission 8: Deploy the Arcade Hub on a Brand-New Root Domain
 
