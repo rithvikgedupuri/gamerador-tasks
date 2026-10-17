@@ -634,6 +634,7 @@ Once your repository has your code, you need to point your custom domain to your
 3. **Configure the custom domain:** Scroll down to the **Custom domain** section, type your domain address `gameradar.rameshgedupuri.space` into the text box, and click **Save**.
 4. **Enforce security:** Wait a few moments for GitHub to verify the site, then check the box next to **Enforce HTTPS** to keep your website secure.
 ```
+```
 
 # 🚀 Mission 8: Deploy the Arcade Hub on a Brand-New Root Domain
 
@@ -677,6 +678,7 @@ Now, update your repository settings so GitHub recognizes requests hitting those
 1. **Enforce HTTPS Encryption:** Right under your saved custom domain path, check the box for **Enforce HTTPS**. 
    * *Note: If it is unclickable, wait roughly 10 minutes. GitHub is actively pinging GoDaddy's four new A-records to safely issue a free SSL security certificate.*
 2. **Live Test:** Once the status dot flips from yellow to a green checkmark, open a clean browser view and load your new root domain address to enjoy your standalone arcade network!
+
 
 # 🚀 Mission 9: Deploy the Arcade Hub on a Brand-New Root Domain
 
