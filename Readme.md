@@ -5,9 +5,33 @@ Follow this step-by-step mission checklist to build your very own gaming portal 
 
 ---
 
-# 🚀 Mission 1: Deploy the Arcade Hub on a Brand-New Root Domain
+## 🛠️ Mission 1: Build the Launchpad (Create Your GitHub Repository)
+*First, we need a place on the internet to store your website files.*
 
-Welcome to your gamerador arcade website! In this mission, you will learn How to create a new root domain.
+- [ ] **Log in to GitHub:** Open your browser and go to your GitHub account.
+- [ ] **Create a New Repository:** Click the **`+`** icon in the upper-right corner and select **New repository**.
+- [ ] **Name Your Project:** Choose a cool name for your gaming hub (e.g., `rithvikgedupuri.github.io`).
+- [ ] **Set Visibility to Public:** Ensure **Public** is selected so your friends can see your site.
+- [ ] **Add a Initialize File:** Check the box that says **Add a README file**.
+- [ ] **Launch:** Click the green **Create repository** button at the bottom.
+- [ ] **Create the Main Page:** Inside your new repository, click **Add file** ➔ **Create new file**. Name the file exactly `index.html`. Write `<h1>Hello World</h1>` inside it and click **Commit changes**.
+
+# 🚀 Mission 2: Configure the custom domain
+
+## Step 2: Configure Your GitHub Repository
+1. Go to the GitHub repository containing the project you want this subdomain to display.
+2. Click on **Settings** (the gear icon at the top of the repository).
+3. Scroll down to the **Pages** section in the left sidebar.
+4. Under **Custom domain**, type your complete subdomain: `games.fun.rithvikgedupuri.github.io`.
+5. Click **Save**.
+
+## Step 3: Enforce HTTPS
+* Once GitHub successfully verifies your domain ownership (this usually takes a few minutes to an hour), check the box for **Enforce HTTPS** in that same GitHub Pages settings menu.
+
+
+# 🚀 Mission 3: Create a Brand-New Root Domain
+
+In this mission, you will learn How to create a new root domain.
 
 ---
 
@@ -26,22 +50,40 @@ When you configure a root domain (the main address without subdomains), GitHub u
    * **Type:** `CNAME`
    * **Name:** `www`
    * **Value:** `rithvikgedupuri.github.io.` *(Don't forget the period at the very end)*
+5. **Configure the games.fun:** To make sure your website still opens if someone writes `://yourdomain.com`, find or create a `CNAME` record with these parameters:
+   * **Type:** `CNAME`
+   * **Name:** `games.fun`
+   * **Value:** `rithvikgedupuri.github.io.` *(Don't forget the period at the very end)*
+---
+
+# Mission 5: Configure Custom Domains to github repos
+
+To point your new subdomain (`games.fun.rithvikgedupuri.space`) to your GitHub Pages site, you need to configure settings in both your **GoDaddy DNS panel** and your **GitHub repository**. 
+
+## Step 1: Add a CNAME Record in GoDaddy
+1. Click the black **Add New Record** button located right above your DNS records table.
+2. Fill out the fields with the following details:
+   * **Type:** `CNAME`
+   * **Name:** `games.fun`
+   * **Value (or Data):** `rithvikgedupuri.github.io.` *(Note: Match this to the target username displayed in your existing `www` record)*
+   * **TTL:** `1 Hour` (or default)
+3. Save the record.
+
+## Step 2: Configure Your GitHub Repository
+1. Go to the GitHub repository containing the project you want this subdomain to display.
+2. Click on **Settings** (the gear icon at the top of the repository).
+3. Scroll down to the **Pages** section in the left sidebar.
+4. Under **Custom domain**, type your complete subdomain: `games.fun.rithvikgedupuri.space`.
+5. Click **Save**.
+
+## Step 3: Enforce HTTPS
+* Once GitHub successfully verifies your domain ownership (this usually takes a few minutes to an hour), check the box for **Enforce HTTPS** in that same GitHub Pages settings menu.
 
 ---
 
-## 🛠️ Mission 3: Build the games.fun website (Create Your GitHub Repository)
-*First, we need a place on the internet to store your website files.*
 
-- [ ] **Log in to GitHub:** Open your browser and go to your GitHub account.
-- [ ] **Create a New Repository:** Click the **`+`** icon in the upper-right corner and select **New repository**.
-- [ ] **Name Your Project:** Choose a cool name for your gaming hub (e.g., `rithvikgedupuri.github.io`).
-- [ ] **Set Visibility to Public:** Ensure **Public** is selected so your friends can see your site.
-- [ ] **Add a Initialize File:** Check the box that says **Add a README file**.
-- [ ] **Launch:** Click the green **Create repository** button at the bottom.
 
----
-
-# 🚀 Mission 4: Build a 4-Game Learning Arcade
+# 🚀 Mission 6: Build a 4-Game Learning Arcade
 
 Welcome to your next developer milestone! In this mission, you will back up your current layout, create two brand-new educational games, and deploy a responsive 4-game dashboard.
 
@@ -503,30 +545,8 @@ Now update your primary entry page to display all four games side-by-side in a c
 
 ```
 ---
-# Mission 5: Configure Custom Domains to Root Domain
 
-To point your new subdomain (`games.fun.rithvikgedupuri.space`) to your GitHub Pages site, you need to configure settings in both your **GoDaddy DNS panel** and your **GitHub repository**. 
-
-## Step 1: Add a CNAME Record in GoDaddy
-1. Click the black **Add New Record** button located right above your DNS records table.
-2. Fill out the fields with the following details:
-   * **Type:** `CNAME`
-   * **Name:** `games.fun`
-   * **Value (or Data):** `rithvikgedupuri.github.io.` *(Note: Match this to the target username displayed in your existing `www` record)*
-   * **TTL:** `1 Hour` (or default)
-3. Save the record.
-
-## Step 2: Configure Your GitHub Repository
-1. Go to the GitHub repository containing the project you want this subdomain to display.
-2. Click on **Settings** (the gear icon at the top of the repository).
-3. Scroll down to the **Pages** section in the left sidebar.
-4. Under **Custom domain**, type your complete subdomain: `games.fun.rithvikgedupuri.space`.
-5. Click **Save**.
-
-## Step 3: Enforce HTTPS
-* Once GitHub successfully verifies your domain ownership (this usually takes a few minutes to an hour), check the box for **Enforce HTTPS** in that same GitHub Pages settings menu.
-
----
+## Mission-7 Create gamerador website.
 
 ### 🚀 Part A: Create Your Repository and Restore Code
 
@@ -927,7 +947,7 @@ To point your new subdomain (`games.fun.rithvikgedupuri.space`) to your GitHub P
 
 
 
-### 🌐 Mission-6: Connect Your Custom Domain to GitHub Pages
+### 🌐 Mission-8: Connect Your Custom Domain to GitHub Pages
 
 Once your repository has your code, you need to point your custom domain to your newly created GitHub project.
 
