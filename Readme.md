@@ -1,11 +1,35 @@
 
-# 🎮 Project: Build Your Own GamesRadar Website!
+# 🎮 Project: Build gamesRadar and games.fun Website!
 
 Follow this step-by-step mission checklist to build your very own gaming portal from absolute scratch, hook up a real website name, and add interactive features!
 
 ---
 
-## 🛠️ Mission 1: Build the Launchpad (Create Your GitHub Repository)
+# 🚀 Mission 1: Deploy the Arcade Hub on a Brand-New Root Domain
+
+Welcome to your gamerador arcade website! In this mission, you will learn How to create a new root domain.
+
+---
+
+### 🌐 Part A: Purchase and Point Your New Domain in GoDaddy
+
+When you configure a root domain (the main address without subdomains), GitHub uses special **Apex IP addresses** instead of a single CNAME text record.
+
+1. **Buy your domain:** Purchase your new domain name (e.g., `rithvikgedupuri.space`) inside your [GoDaddy Dashboard](https://godaddy.com "GoDaddy Official Website").
+2. **Open the DNS settings:** Navigate to **My Products**, find your brand-new root domain, and click **Manage DNS**.
+3. **Add Apex Records (A Records):** GitHub Pages uses four distinct fallback IP addresses for root domain management. Click **Add New Record** and create **four separate A Records** using these values:
+   * **First Record:** Type: `A` | Name: `@` | Value: `185.199.108.153` | TTL: `Default`
+   * **Second Record:** Type: `A` | Name: `@` | Value: `185.199.109.153` | TTL: `Default`
+   * **Third Record:** Type: `A` | Name: `@` | Value: `185.199.110.153` | TTL: `Default`
+   * **Fourth Record:** Type: `A` | Name: `@` | Value: `185.199.111.153` | TTL: `Default`
+4. **Configure the www Redirect:** To make sure your website still opens if someone writes `://yourdomain.com`, find or create a `CNAME` record with these parameters:
+   * **Type:** `CNAME`
+   * **Name:** `www`
+   * **Value:** `rithvikgedupuri.github.io.` *(Don't forget the period at the very end)*
+
+---
+
+## 🛠️ Mission 3: Build the games.fun website (Create Your GitHub Repository)
 *First, we need a place on the internet to store your website files.*
 
 - [ ] **Log in to GitHub:** Open your browser and go to your GitHub account.
@@ -14,107 +38,10 @@ Follow this step-by-step mission checklist to build your very own gaming portal 
 - [ ] **Set Visibility to Public:** Ensure **Public** is selected so your friends can see your site.
 - [ ] **Add a Initialize File:** Check the box that says **Add a README file**.
 - [ ] **Launch:** Click the green **Create repository** button at the bottom.
-- [ ] **Create the Main Page:** Inside your new repository, click **Add file** ➔ **Create new file**. Name the file exactly `index.html`. Write `<h1>Hello World</h1>` inside it and click **Commit changes**.
 
 ---
 
-## 🌐 Mission 2: Get Your Custom Web Name (Link Your GoDaddy Domain)
-*Let's make your website look official by pointing your GoDaddy domain name directly to your GitHub files.*
-
-### Part A: Setup on GoDaddy
-- [ ] **Open GoDaddy DNS:** Log in to your GoDaddy Domain Portfolio, find your domain, and click **DNS** to open the management page.
-- [ ] **Clean Up Old Records:** If you see an existing row that says `A` • `@` • `Parked`, delete it by clicking the trash can icon.
-- [ ] **Add GitHub's IP Addresses:** Click **Add New Record** 4 separate times to add these four **A Records**:
-  * **Type:** `A` | **Name:** `@` | **Value:** `185.199.108.153`
-  * **Type:** `A` | **Name:** `@` | **Value:** `185.199.109.153`
-  * **Type:** `A` | **Name:** `@` | **Value:** `185.199.110.153`
-  * **Type:** `A` | **Name:** `@` | **Value:** `185.199.111.153`
-- [ ] **Point the Subdomain:** Find the row for the `CNAME` record where the Name is `www`. Click **Edit** and change its value to `yourusername.github.io` (replace with your actual GitHub username). Click **Save**.
-
-### Part B: Setup on GitHub
-- [ ] **Open Settings:** Go to your repository on GitHub and click the **Settings** tab at the top.
-- [ ] **Navigate to Pages:** Click **Pages** in the left sidebar menu.
-- [ ] **Enter Your Domain:** Scroll down to the **Custom domain** box, type your GoDaddy domain (e.g., `yourdomain.com`), and click **Save**.
-- [ ] **Secure Your Site:** Once the green "DNS check successful" message appears, check the box for **Enforce HTTPS**.
-
----
-# Mission 3: Configure Custom Domains to Root Domain
-
-To point your new subdomain (`gamerador.rameshgedupuri.space`) to your GitHub Pages site, you need to configure settings in both your **GoDaddy DNS panel** and your **GitHub repository**. 
-
-## Step 1: Add a CNAME Record in GoDaddy
-1. Click the black **Add New Record** button located right above your DNS records table.
-2. Fill out the fields with the following details:
-   * **Type:** `CNAME`
-   * **Name:** `gamerador`
-   * **Value (or Data):** `rithvikgedupuri.github.io.` *(Note: Match this to the target username displayed in your existing `www` record)*
-   * **TTL:** `1 Hour` (or default)
-3. Save the record.
-
-## Step 2: Configure Your GitHub Repository
-1. Go to the GitHub repository containing the project you want this subdomain to display.
-2. Click on **Settings** (the gear icon at the top of the repository).
-3. Scroll down to the **Pages** section in the left sidebar.
-4. Under **Custom domain**, type your complete subdomain: `gamerador.rameshgedupuri.space`.
-5. Click **Save**.
-
-## Step 3: Enforce HTTPS
-* Once GitHub successfully verifies your domain ownership (this usually takes a few minutes to an hour), check the box for **Enforce HTTPS** in that same GitHub Pages settings menu.
-
----
-## 🏆 Mission 4: Write Your Top 5 Gaming Countdown
-*Time to add content just like a real game journalist on GamesRadar!*
-
-- [ ] **Edit index.html:** Open your `index.html` file on GitHub and click the **Pencil icon ✏️** to edit it.
-- [ ] **Paste the Countdown Template:** Scroll to the bottom of your file and paste this block:
-
-```html
-<!-- Start of Top 5 Game List -->
-<hr style="margin: 30px 0; border: 1px solid #ccc;">
-
-<h2 style="font-family: sans-serif; color: #333;">🏆 My Top 5 Games of the Year</h2>
-<p style="font-family: sans-serif; color: #555;">Here are my absolute favorite games right now and exactly why you should play them:</p>
-
-<ol style="font-family: sans-serif; font-size: 16px; line-height: 1.8; color: #222;">
-  <li>🚀 <strong>[Game Name 1]</strong> - Type why this game is awesome here!</li>
-  <li>🧱 <strong>[Game Name 2]</strong> - What is your favorite thing to do in this game?</li>
-  <li>👑 <strong>[Game Name 3]</strong> - Why is this game in the top 3?</li>
-  <li>🏎️ <strong>[Game Name 4]</strong> - Add a cool detail or mode you like.</li>
-  <li>👾 <strong>[Game Name 5]</strong> - Write a quick tip for anyone playing this game.</li>
-</ol>
-<!-- End of Top 5 Game List -->
-```
-- [ ] **Make It Yours:** Change the placeholder `[Game Name]` text and descriptions to feature your favorite video games.
-- [ ] **Save:** Click the green **Commit changes** button.
-
----
-
-## 📊 Mission 5: Settle the Debate (Create a Live Voting Poll)
-*Get your audience involved by letting them vote on their favorite platforms or games.*
-
-- [ ] **Design Your Poll:** Go to StrawPoll.com. Type a fun gaming question (e.g., *Xbox vs. PlayStation vs. Nintendo*) and add your options. Click **Create Poll**.
-- [ ] **Grab the Link:** Under the **Share** section at the bottom, click the copy icon next to your unique poll link.
-- [ ] **Edit index.html Again:** Open your `index.html` file on GitHub and hit the **Pencil icon ✏️**.
-- [ ] **Paste the Interactive Button Template:** Scroll to the absolute bottom of your file and paste this code:
-
-```html
-<!-- Start of Voting Poll Section -->
-<hr style="margin: 30px 0; border: 1px solid #ccc;">
-
-<div style="font-family: sans-serif; text-align: center; background-color: #f9f9f9; padding: 20px; border-radius: 8px; border: 1px solid #ddd;">
-  <h2 style="color: #333; margin-top: 0;">📊 Cast Your Vote!</h2>
-  <p style="color: #555;">Help me settle the debate! Vote for your favorite game on my official poll:</p>
-  
-  <!-- PASTE YOUR COPIED LINK INSIDE THE href="" QUOTES BELOW -->
-  <a href="PASTE_YOUR_STRAWPOLL_LINK_HERE" target="_blank" style="display: inline-block; background-color: #4F46E5; color: white; padding: 12px 24px; text-decoration: none; font-weight: bold; border-radius: 6px; margin-top: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">👉 Click Here to Vote Now! 👈</a>
-</div>
-<!-- End of Voting Poll Section -->
-```
-- [ ] **Link It Up:** Replace `PASTE_YOUR_STRAWPOLL_LINK_HERE` with the actual link you copied from StrawPoll. Keep the quotes around it!
-- [ ] **Publish Live:** Click **Commit changes**. Open your site, click your shiny new button, and see if it works!
-
-
-# 🚀 Mission 6: Build a 4-Game Learning Arcade
+# 🚀 Mission 4: Build a 4-Game Learning Arcade
 
 Welcome to your next developer milestone! In this mission, you will back up your current layout, create two brand-new educational games, and deploy a responsive 4-game dashboard.
 
@@ -575,42 +502,29 @@ Now update your primary entry page to display all four games side-by-side in a c
 </html>
 
 ```
-
-
-# 🚀 Mission 7: Build a 4-Game Learning Arcade
-
-Welcome to your next developer milestone! In this mission, you will back up your current layout, configure your custom GoDaddy subdomain, and deploy your updated gaming dashboard.
-
 ---
+# Mission 5: Configure Custom Domains to Root Domain
 
-### 🌐 Part A: Configure Your New Custom Domain in GoDaddy
-Before updating your GitHub files, you need to point your new subdomain to GitHub's servers.
+To point your new subdomain (`games.fun.rithvikgedupuri.space`) to your GitHub Pages site, you need to configure settings in both your **GoDaddy DNS panel** and your **GitHub repository**. 
 
-1. **Log into GoDaddy:** Go to your GoDaddy dashboard
-2. **Open DNS settings:** Find your domain `rameshgedupuri.space` and click **DNS**.
-3. **create a new DNS record:** 
-4. **Add new pointer:** Click **Add New Record** and apply these settings:
+## Step 1: Add a CNAME Record in GoDaddy
+1. Click the black **Add New Record** button located right above your DNS records table.
+2. Fill out the fields with the following details:
    * **Type:** `CNAME`
    * **Name:** `games.fun`
-   * **Value:** `rithvikgedupuri.github.io` *(Replace with your actual GitHub username)*
-   * **TTL:** Default
-5. **Save the record:** Click save and allow a few minutes for the internet to update.
+   * **Value (or Data):** `rithvikgedupuri.github.io.` *(Note: Match this to the target username displayed in your existing `www` record)*
+   * **TTL:** `1 Hour` (or default)
+3. Save the record.
 
----
+## Step 2: Configure Your GitHub Repository
+1. Go to the GitHub repository containing the project you want this subdomain to display.
+2. Click on **Settings** (the gear icon at the top of the repository).
+3. Scroll down to the **Pages** section in the left sidebar.
+4. Under **Custom domain**, type your complete subdomain: `games.fun.rithvikgedupuri.space`.
+5. Click **Save**.
 
-### 💻 Part B: Update Your Custom Domain in GitHub Pages
-Now, configure your repository settings to look for the new web address.
-
-1. **Open your repository:** Go to GitHub and open your gaming hub repository.
-2. **Open settings:** Click on the ⚙️ **Settings** tab at the top of your repository.
-3. **Navigate to Pages:** On the left sidebar menu, click on **Pages**.
-4. **Update the domain:** Scroll down to **Custom domain**, delete the old URL, and type **`games.fun.rameshgedupuri.space`**.
-5. **Save and secure:** Click **Save**, wait for the system to process, and check the box to **Enforce HTTPS**.
-
-
-# 🛠️ Mission 8: Build gamerador website
-
-Welcome to your next developer milestone! In this mission, you will create a brand-new repository for your project, set up your main webpage file, and restore your backed-up layout.
+## Step 3: Enforce HTTPS
+* Once GitHub successfully verifies your domain ownership (this usually takes a few minutes to an hour), check the box for **Enforce HTTPS** in that same GitHub Pages settings menu.
 
 ---
 
@@ -623,7 +537,9 @@ Welcome to your next developer milestone! In this mission, you will create a bra
 5. **Add an Initialize File:** Check the box that says **Add a README file**.
 6. **Launch:** Click the green **Create repository** button at the bottom.
 7. **Create the Main Page:** Inside your new repository, click **Add file** ➔ **Create new file**. Name the file exactly `index.html`.
-8. **Restore Your Layout:** Open your local `index_backup.txt` file, copy everything inside, and paste it directly into the code window of your new `index.html` file.
+8. add the following content
+
+
 
 ### 🌐 Part B: Connect Your Custom Domain to GitHub Pages
 
@@ -634,29 +550,19 @@ Once your repository has your code, you need to point your custom domain to your
 3. **Configure the custom domain:** Scroll down to the **Custom domain** section, type your domain address `gameradar.rameshgedupuri.space` into the text box, and click **Save**.
 4. **Enforce security:** Wait a few moments for GitHub to verify the site, then check the box next to **Enforce HTTPS** to keep your website secure.
 
+
+
+
 # 🚀 Mission 9: Deploy the Arcade Hub on a Brand-New Root Domain
 
-Welcome to your next major development milestone! In this mission, you will learn how to step away from subdomains and launch your 4-game learning arcade hub on its own dedicated standalone root domain website.
+1. **what we have now** now we have domains with rithvikgedupuri.space and newly created domain
+2. **correct tasks.md:** now take a backup of this **Readme.md** and modify the Readme.md and adjust the steps into smaller or easy way to understand to overcome multiple domains
 
----
+# 🚀 Mission 10: Implement all the steps
 
-### 🌐 Part A: Purchase and Point Your New Domain in GoDaddy
+1. **now we have structured format** Redploy all the steps and adjust tasks.md as required
 
-When you configure a root domain (the main address without subdomains), GitHub uses special **Apex IP addresses** instead of a single CNAME text record.
 
-1. **Buy your domain:** Purchase your new domain name (e.g., `mycoolarcade.com`) inside your [GoDaddy Dashboard](https://godaddy.com "GoDaddy Official Website").
-2. **Open the DNS settings:** Navigate to **My Products**, find your brand-new root domain, and click **Manage DNS**.
-3. **Add Apex Records (A Records):** GitHub Pages uses four distinct fallback IP addresses for root domain management. Click **Add New Record** and create **four separate A Records** using these values:
-   * **First Record:** Type: `A` | Name: `@` | Value: `185.199.108.153` | TTL: `Default`
-   * **Second Record:** Type: `A` | Name: `@` | Value: `185.199.109.153` | TTL: `Default`
-   * **Third Record:** Type: `A` | Name: `@` | Value: `185.199.110.153` | TTL: `Default`
-   * **Fourth Record:** Type: `A` | Name: `@` | Value: `185.199.111.153` | TTL: `Default`
-4. **Configure the www Redirect:** To make sure your website still opens if someone writes `://yourdomain.com`, find or create a `CNAME` record with these parameters:
-   * **Type:** `CNAME`
-   * **Name:** `www`
-   * **Value:** `infinitetechstack.github.io.` *(Don't forget the period at the very end)*
-
----
 
 ### 💻 Part B: Assign the Root Domain inside GitHub Pages
 
@@ -677,16 +583,7 @@ Now, update your repository settings so GitHub recognizes requests hitting those
    * *Note: If it is unclickable, wait roughly 10 minutes. GitHub is actively pinging GoDaddy's four new A-records to safely issue a free SSL security certificate.*
 2. **Live Test:** Once the status dot flips from yellow to a green checkmark, open a clean browser view and load your new root domain address to enjoy your standalone arcade network!
 
-
-# 🚀 Mission 9: Deploy the Arcade Hub on a Brand-New Root Domain
-
-1. **what we have now** now we have domains with rithvikgedupuri.space and newly created domain
-2. **correct tasks.md:** now take a backup of this **Readme.md** and modify the Readme.md and adjust the steps into smaller or easy way to understand to overcome multiple domains
-
-# 🚀 Mission 10: Implement all the steps
-
-1. **now we have structured format** Redploy all the steps and adjust tasks.md as required
-
+   
 ### 🏆 MISSION COMPLETE STATUS
 
 ```text
