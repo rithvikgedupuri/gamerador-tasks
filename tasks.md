@@ -50,7 +50,7 @@ Recommended settings:
 
 For an organization Pages site, the repository name must match the organization's GitHub Pages hostname.
 
-## Step 3: Create the GameRadar repository
+## Step 3: Create the gameRadar repository
 
 Create a second repository:
 
