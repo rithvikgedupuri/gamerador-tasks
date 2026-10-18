@@ -586,9 +586,9 @@ Welcome to your next developer milestone! In this mission, you will back up your
 ### 🌐 Part A: Configure Your New Custom Domain in GoDaddy
 Before updating your GitHub files, you need to point your new subdomain to GitHub's servers.
 
-1. **Log into GoDaddy:** Go to your GoDaddy dashboard and navigate to **My Products**.
-2. **Open DNS settings:** Find your domain `rameshgedupuri.space` and click **Manage DNS**.
-3. **Remove old pointer:** Find the old `CNAME` record with the Host `gameradar` and delete it.
+1. **Log into GoDaddy:** Go to your GoDaddy dashboard
+2. **Open DNS settings:** Find your domain `rameshgedupuri.space` and click **DNS**.
+3. **create a new DNS record:** 
 4. **Add new pointer:** Click **Add New Record** and apply these settings:
    * **Type:** `CNAME`
    * **Name:** `games.fun`
