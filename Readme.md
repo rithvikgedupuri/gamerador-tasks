@@ -681,7 +681,7 @@ Now, update your repository settings so GitHub recognizes requests hitting those
 # 🚀 Mission 9: Deploy the Arcade Hub on a Brand-New Root Domain
 
 1. **what we have now** now we have domains with rithvikgedupuri.space and newly created domain
-2. **correct tasks.md:** now take a backup of this **tasks.md** and modify the tasks.md and adjust the steps into smaller or easy way to understand to overcome multiple domains
+2. **correct tasks.md:** now take a backup of this **Readme.md** and modify the Readme.md and adjust the steps into smaller or easy way to understand to overcome multiple domains
 
 # 🚀 Mission 10: Implement all the steps
 
