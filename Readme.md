@@ -577,7 +577,7 @@ Now update your primary entry page to display all four games side-by-side in a c
 ```
 
 
-# 🚀 Mission 6: Build a 4-Game Learning Arcade
+# 🚀 Mission 7: Build a 4-Game Learning Arcade
 
 Welcome to your next developer milestone! In this mission, you will back up your current layout, configure your custom GoDaddy subdomain, and deploy your updated gaming dashboard.
 
@@ -608,7 +608,7 @@ Now, configure your repository settings to look for the new web address.
 5. **Save and secure:** Click **Save**, wait for the system to process, and check the box to **Enforce HTTPS**.
 
 
-# 🛠️ Mission 7: Build gamerador website
+# 🛠️ Mission 8: Build gamerador website
 
 Welcome to your next developer milestone! In this mission, you will create a brand-new repository for your project, set up your main webpage file, and restore your backed-up layout.
 
@@ -634,7 +634,7 @@ Once your repository has your code, you need to point your custom domain to your
 3. **Configure the custom domain:** Scroll down to the **Custom domain** section, type your domain address `gameradar.rameshgedupuri.space` into the text box, and click **Save**.
 4. **Enforce security:** Wait a few moments for GitHub to verify the site, then check the box next to **Enforce HTTPS** to keep your website secure.
 
-# 🚀 Mission 8: Deploy the Arcade Hub on a Brand-New Root Domain
+# 🚀 Mission 9: Deploy the Arcade Hub on a Brand-New Root Domain
 
 Welcome to your next major development milestone! In this mission, you will learn how to step away from subdomains and launch your 4-game learning arcade hub on its own dedicated standalone root domain website.
 
