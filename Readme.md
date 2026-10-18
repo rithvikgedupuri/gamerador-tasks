@@ -539,9 +539,395 @@ To point your new subdomain (`games.fun.rithvikgedupuri.space`) to your GitHub P
 7. **Create the Main Page:** Inside your new repository, click **Add file** ➔ **Create new file**. Name the file exactly `index.html`.
 8. add the following content
 
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Radar - Discover & Review Games</title>
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --accent-color: #38bdf8;
+            --accent-hover: #0ea5e9;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --border-color: #334155;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: var(--card-bg);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        header h1 {
+            color: var(--accent-color);
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            color: var(--text-muted);
+        }
+
+        section {
+            background: var(--card-bg);
+            padding: 25px;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 25px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        h2 {
+            color: var(--accent-color);
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        /* Search Section Styles */
+        .search-container {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .search-box {
+            flex: 1;
+            padding: 12px 15px;
+            font-size: 1rem;
+            background: var(--bg-color);
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            border-radius: 8px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .search-box:focus {
+            border-color: var(--accent-color);
+        }
+
+        .game-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 15px;
+            max-height: 400px;
+            overflow-y: auto;
+            padding-right: 5px;
+        }
+
+        .game-card {
+            background: var(--bg-color);
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            transition: transform 0.2s, border-color 0.2s;
+        }
+
+        .game-card:hover {
+            transform: translateY(-3px);
+            border-color: var(--accent-color);
+        }
+
+        .game-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+            color: var(--text-main);
+        }
+
+        .game-card span {
+            font-size: 0.85rem;
+            color: var(--accent-color);
+            background: rgba(56, 189, 248, 0.1);
+            padding: 2px 8px;
+            border-radius: 4px;
+            display: inline-block;
+        }
+
+        /* Form Controls */
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        select, input[type="text"], textarea {
+            width: 100%;
+            padding: 10px 12px;
+            background: var(--bg-color);
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            border-radius: 8px;
+            margin-bottom: 15px;
+            font-size: 1rem;
+        }
+
+        button {
+            background: var(--accent-color);
+            color: var(--bg-color);
+            border: none;
+            padding: 12px 20px;
+            font-weight: bold;
+            font-size: 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.2s;
+            width: 100%;
+        }
+
+        button:hover {
+            background: var(--accent-hover);
+        }
+
+        #quiz-result {
+            margin-top: 15px;
+            font-weight: bold;
+            color: var(--accent-color);
+            font-size: 1.1rem;
+        }
+
+        .review-item {
+            background: var(--bg-color);
+            padding: 12px 15px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            margin-top: 10px;
+        }
+
+        .review-item strong {
+            color: var(--accent-color);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>📡 Game Radar</h1>
+            <p>Your interactive hub for top games & community reviews!</p>
+        </header>
+
+        <!-- SEARCH & FILTER SECTION -->
+        <section>
+            <h2>🔍 Search Games Database</h2>
+            <div class="search-container">
+                <input type="text" id="searchInput" class="search-box" placeholder="Search PUBG, Minecraft, Roblox, FC Mobile...">
+                <button onclick="filterGames()" style="width: auto;">Search</button>
+            </div>
+            <!-- Dynamically populated game grid -->
+            <div id="gameGrid" class="game-grid"></div>
+        </section>
+
+        <!-- QUIZ SECTION -->
+        <section>
+            <h2>🎮 Game Finder Quiz</h2>
+            <label for="genreSelect">Choose your favorite genre:</label>
+            <select id="genreSelect">
+                <option value="Sandbox">Sandbox & Survival</option>
+                <option value="Open World">Open World / Adventure</option>
+                <option value="Action">Action & Shooter</option>
+                <option value="Party">Party & Multiplayer</option>
+                <option value="Mobile">Mobile & Sports</option>
+                <option value="Horror">Horror & Survival</option>
+                <option value="Fighting">Fighting & Arcade</option>
+                <option value="Racing">Racing & Sports</option>
+            </select>
+            <button onclick="recommendGame()">Find My Game!</button>
+            <div id="quiz-result"></div>
+        </section>
+
+        <!-- Start of Top 5 Game List -->
+        <section>
+            <h2>🏆 My Top 5 Games of the Year</h2>
+            <p style="color: var(--text-muted); margin-bottom: 15px;">Here are my absolute favorite games right now and exactly why you should play them:</p>
+
+            <ol style="font-size: 16px; line-height: 1.8; color: var(--text-main); padding-left: 20px;">
+              <li>🚀 <strong>PUBG Mobile</strong> - Intense battle royale survival gameplay with friends!</li>
+              <li>🧱 <strong>Minecraft</strong> - Endless building options and infinite sandbox exploration.</li>
+              <li>👑 <strong>Roblox</strong> - Millions of custom player-created minigames to try out.</li>
+              <li>🏎️ <strong>EA Sports FC Mobile</strong> - Build your ultimate dream team and rank up in Head-to-Head mode!</li>
+              <li>👾 <strong>Among Us</strong> - Keep your eyes open and spot the imposter before it's too late!</li>
+            </ol>
+        </section>
+        <!-- End of Top 5 Game List -->
+
+        <!-- Start of Voting Poll Section -->
+        <section style="text-align: center;">
+            <hr style="margin: 0 0 20px 0; border: 1px solid var(--border-color);">
+
+            <h2 style="margin-top: 0;">📊 Cast Your Vote!</h2>
+            <p style="color: var(--text-muted); margin-bottom: 15px;">Help me settle the debate! Vote for your favorite game on my official poll:</p>
+            
+            <a href="https://strawpoll.com/poy9k1qOOgJ" target="_blank" style="display: inline-block; background-color: var(--accent-color); color: var(--bg-color); padding: 12px 24px; text-decoration: none; font-weight: bold; border-radius: 8px; transition: background 0.2s;">👉 Click Here to Vote Now! 👈</a>
+        </section>
+        <!-- End of Voting Poll Section -->
+
+        <!-- REVIEW SUBMISSION SECTION -->
+        <section>
+            <h2>✍️ Community Reviews</h2>
+            <label for="gameTitle">Game Title</label>
+            <input type="text" id="gameTitle" placeholder="Game Title">
+            
+            <label for="reviewText">Your Review</label>
+            <textarea id="reviewText" rows="3" placeholder="Write your review here..."></textarea>
+            
+            <button onclick="submitReview()">Submit Review</button>
+            
+            <div style="margin-top: 20px;">
+                <h3>Recent Reviews:</h3>
+                <div id="reviewList">
+                    <div class="review-item">
+                        <strong>Minecraft</strong>
+                        <p>Infinite creativity and survival fun!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Game Database Array
+        const gamesDatabase = [
+            { title: "PUBG Mobile", genre: "Action & Shooter" },
+            { title: "Minecraft", genre: "Sandbox & Survival" },
+            { title: "Roblox", genre: "Sandbox & Survival" },
+            { title: "EA Sports FC Mobile", genre: "Mobile & Sports" },
+            { title: "Among Us", genre: "Party & Multiplayer" },
+            { title: "Fortnite", genre: "Action & Shooter" },
+            { title: "Valorant", genre: "Action & Shooter" },
+            { title: "Zelda: Tears of the Kingdom", genre: "Open World / Adventure" },
+            { title: "Grand Theft Auto V", genre: "Open World / Action" },
+            { title: "Call of Duty: Warzone", genre: "Action & Shooter" },
+            { title: "Counter-Strike 2", genre: "Action & Shooter" },
+            { title: "League of Legends", genre: "Action & Strategy" },
+            { title: "Apex Legends", genre: "Action & Shooter" },
+            { title: "Rocket League", genre: "Racing & Sports" },
+            { title: "Fall Guys", genre: "Party & Multiplayer" },
+            { title: "Terraria", genre: "Sandbox & Survival" },
+            { title: "Stardew Valley", genre: "Sandbox & Survival" },
+            { title: "Genshin Impact", genre: "Open World / Adventure" },
+            { title: "Elden Ring", genre: "Open World / Adventure" },
+            { title: "Baldur's Gate 3", genre: "Open World / Adventure" },
+            { title: "EA Sports FC 24", genre: "Racing & Sports" },
+            { title: "Super Smash Bros. Ultimate", genre: "Fighting & Arcade" },
+            { title: "Mario Kart 8 Deluxe", genre: "Racing & Sports" },
+            { title: "Animal Crossing: New Horizons", genre: "Sandbox & Survival" },
+            { title: "Cyberpunk 2077", genre: "Open World / Adventure" },
+            { title: "Overwatch 2", genre: "Action & Shooter" },
+            { title: "Portal 2", genre: "Party & Multiplayer" },
+            { title: "Undertale", genre: "Open World / Adventure" },
+            { title: "Pokemon Scarlet and Violet", genre: "Open World / Adventure" },
+            { title: "Team Fortress 2", genre: "Action & Shooter" },
+            { title: "Hades", genre: "Action & Shooter" },
+            { title: "Subnautica", genre: "Horror & Survival" },
+            { title: "Phasmophobia", genre: "Horror & Survival" },
+            { title: "Dead by Daylight", genre: "Horror & Survival" },
+            { title: "Resident Evil 4", genre: "Horror & Survival" },
+            { title: "Mortal Kombat 1", genre: "Fighting & Arcade" },
+            { title: "Street Fighter 6", genre: "Fighting & Arcade" },
+            { title: "Tekken 8", genre: "Fighting & Arcade" },
+            { title: "Forza Horizon 5", genre: "Racing & Sports" },
+            { title: "Gran Turismo 7", genre: "Racing & Sports" },
+            { title: "Need for Speed Unbound", genre: "Racing & Sports" },
+            { title: "The Last of Us Part I", genre: "Horror & Survival" }
+        ];
+
+        // Function to display games on the page
+        function displayGames(gamesArray) {
+            let grid = document.getElementById('gameGrid');
+            grid.innerHTML = "";
+
+            if (gamesArray.length === 0) {
+                grid.innerHTML = "<p style='color: var(--text-muted);'>No games found matching your search.</p>";
+                return;
+            }
+
+            gamesArray.forEach(game => {
+                let card = document.createElement('div');
+                card.className = 'game-card';
+                card.innerHTML = `<h3>${game.title}</h3><span>${game.genre}</span>`;
+                grid.appendChild(card);
+            });
+        }
+
+        // Search Function triggered by button
+        function filterGames() {
+            let input = document.getElementById('searchInput').value.toLowerCase();
+            let filtered = gamesDatabase.filter(game => 
+                game.title.toLowerCase().includes(input) || 
+                game.genre.toLowerCase().includes(input)
+            );
+            displayGames(filtered);
+        }
+
+        // Quiz Recommendation Logic
+        function recommendGame() {
+            let genre = document.getElementById('genreSelect').value;
+            let resultDiv = document.getElementById('quiz-result');
+            resultDiv.innerText = "Showing top picks for " + genre + " in the database above!";
+        }
+
+        // Review Submission Logic
+        function submitReview() {
+            let title = document.getElementById('gameTitle').value.trim();
+            let text = document.getElementById('reviewText').value.trim();
+            let reviewList = document.getElementById('reviewList');
+
+            if (title === "" || text === "") {
+                alert("Please fill out both fields!");
+                return;
+            }
+
+            let newReview = document.createElement('div');
+            newReview.className = 'review-item';
+            newReview.innerHTML = `<strong>${title}</strong><p>${text}</p>`;
+
+            reviewList.prepend(newReview);
+
+            document.getElementById('gameTitle').value = "";
+            document.getElementById('reviewText').value = "";
+        }
+
+        // Initial load to show games when page opens
+        window.onload = function() {
+            displayGames(gamesDatabase);
+        };
+    </script>
+</body>
+</html>
+```
 
 
-### 🌐 Part B: Connect Your Custom Domain to GitHub Pages
+
+### 🌐 Mission-6: Connect Your Custom Domain to GitHub Pages
 
 Once your repository has your code, you need to point your custom domain to your newly created GitHub project.
 
@@ -551,20 +937,7 @@ Once your repository has your code, you need to point your custom domain to your
 4. **Enforce security:** Wait a few moments for GitHub to verify the site, then check the box next to **Enforce HTTPS** to keep your website secure.
 
 
-
-
-# 🚀 Mission 9: Deploy the Arcade Hub on a Brand-New Root Domain
-
-1. **what we have now** now we have domains with rithvikgedupuri.space and newly created domain
-2. **correct tasks.md:** now take a backup of this **Readme.md** and modify the Readme.md and adjust the steps into smaller or easy way to understand to overcome multiple domains
-
-# 🚀 Mission 10: Implement all the steps
-
-1. **now we have structured format** Redploy all the steps and adjust tasks.md as required
-
-
-
-### 💻 Part B: Assign the Root Domain inside GitHub Pages
+### 💻 Part A: Assign the Root Domain inside GitHub Pages
 
 Now, update your repository settings so GitHub recognizes requests hitting those four IP addresses.
 
@@ -577,7 +950,7 @@ Now, update your repository settings so GitHub recognizes requests hitting those
 
 ---
 
-### 🔒 Part C: Issue SSL and Verify
+### 🔒 Part B: Issue SSL and Verify
 
 1. **Enforce HTTPS Encryption:** Right under your saved custom domain path, check the box for **Enforce HTTPS**. 
    * *Note: If it is unclickable, wait roughly 10 minutes. GitHub is actively pinging GoDaddy's four new A-records to safely issue a free SSL security certificate.*
